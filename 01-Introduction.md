@@ -6,7 +6,7 @@ One of the most unique features of the language is that it relies heavily on ran
 
 This chapter will provide a brief overview of the features Rant has to offer.
 
-## 1.1 Getting Started
+## 1.1 - Getting Started
 
 A "Hello World" program in Rant is simply the text written as follows:
 
@@ -26,7 +26,7 @@ A file with the extension `.rant` stores a regular pattern. This refers to any p
 #### .rants
 The `.rants` extension denotes a *serial pattern*. This is still Rant code, but it is written in a way that causes it to to return multiple sequential outputs via the `[yield]` function. It is intended to provide a hint to programs supporting the extension that the pattern contained in the file requires the serial execution pipeline. It otherwise does not affect the pattern's behavior, and a serial pattern placed in a regular `.rant` file will still run (albeit incorrectly).
 
-## 1.2 Tags
+## 1.2 - Tags
 
 Tags are the most common way of adding functionality to a pattern. The term "tag" encompasses a number of different language elements, but they all share the characteristic of being enclosed in a pair of brackets.
 ```
@@ -87,7 +87,7 @@ Richard scripts (discussed later) are embedded inside of a tag that starts with 
 2
 ```
 
-## 1.3 Blocks
+## 1.3 - Blocks
 
 Blocks are sections of a pattern, consisting of one or more sequential parts, which are subject to branching behavior. Blocks are surrounded with braces.
 ```rant
@@ -112,6 +112,6 @@ Blocks can also be nested:
 ```
 The default behavior of a block is to randomly execute one of the items, however, this behavior can be modified through functions and other methods discussed later on.
 
-## 1.4 Queries
+## 1.4 - Queries
 
 Rant's query engine is one of its most powerful features. Queries allow Rant to interact with and retrieve data from an external dictionary to integrate a large vocabulary into outputs. Queries provide advanced filtering options that make it possible to achieve a variety of complex behaviors such as word association, comparisons, gender agreement, and even rhyming.
