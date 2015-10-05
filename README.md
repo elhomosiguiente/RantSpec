@@ -2,7 +2,7 @@
 
 #### Version 3.0
 
-_ **Fair warning**: This specification is a work-in-progress and should not be used as an official reference (yet). _
+_**Fair warning**: This specification is a work-in-progress and should not be used as an official reference (yet)._
 
 ## Table of Contents
 
