@@ -7,10 +7,10 @@ _**Fair warning**: This specification is a work-in-progress and should not be us
 ## Table of Contents
 
 * [1 - Introduction](01-Introduction.md)
-  * 1.1 - Getting Started
-  * 1.2 - Tags
-  * 1.3 - Blocks
-  * 1.4 - Queries
+  * [1.1 - Getting Started](01-Introduction.md#11---getting-started)
+  * [1.2 - Tags](01-Introduction.md#12---tags)
+  * [1.3 - Blocks](01-Introduction.md#13---blocks)
+  * [1.4 - Queries](01-Introduction.md#14---queries)
   * 1.5 - Richard
 * 2 - Basic Elements
   * 2.1 - Text & Whitespace
