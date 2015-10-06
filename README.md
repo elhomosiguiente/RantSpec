@@ -55,6 +55,7 @@ _**Fair warning**: This specification is a work-in-progress and should not be us
     * 4.4.18 - The `^<=` Operator (Rank Less Than Or Equal)
   * 4.5 - Query Macros
     * 4.5.1 - Partial Macros
+  * 4.6 - Deferred Queries
 * 5 - Richard
   * 5.1 - Types
   * 5.2 - Variables
