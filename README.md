@@ -11,12 +11,14 @@ _**Fair warning**: This specification is a work-in-progress and should not be us
   * [1.2 - Tags](01-Introduction.md#12---tags)
   * [1.3 - Blocks](01-Introduction.md#13---blocks)
   * [1.4 - Queries](01-Introduction.md#14---queries)
-  * 1.5 - Richard
-* 2 - Basic Elements
+  * [1.5 - Richard](01-Introduction.md#15---richard)
+* [2 - Basic Elements](02-Basic-Elements.md)
   * 2.1 - Text & Whitespace
   * 2.2 - Comments
   * 2.3 - Escape Sequences
-  * 2.4 - Blocks
+  * 2.4 - Constant Literals
+  * 2.5 - Shortcuts
+  * 2.6 - Blocks
 * 3 - Functions
   * 3.1 - Built-In Functions
   * 3.2 - Subroutines

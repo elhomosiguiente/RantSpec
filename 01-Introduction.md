@@ -115,3 +115,49 @@ The default behavior of a block is to randomly execute one of the items, however
 ## 1.4 - Queries
 
 Rant's query engine is one of its most powerful features. Queries allow Rant to interact with and retrieve data from an external dictionary to integrate a large vocabulary into outputs. Queries provide advanced filtering options that make it possible to achieve a variety of complex behaviors such as word association, comparisons, gender agreement, and even rhyming.
+
+Queries are denoted by angle brackets. Here are a few examples:
+
+```rant
+<noun>
+<noun-tool|weapon|vehicle>
+<noun.plural-animal>
+<verb-transitive:: =A @+B>
+<unit-volume>
+<color-primary>
+```
+
+## 1.5 - Richard
+
+Richard is Rant's embedded scripting language. It allows fine-grained control over pattern behavior by exposing various parts of the engine through functions, as well as enabling the creation of variables that can be stored both locally and globally. Many of Richard's features are influenced directly by ECMAScript, so people coming from a JavaScript background will find that many of the features provided by Richard will feel very familiar.
+
+In Rant, Richard can be used in two main ways: to execute code statements with no visible effect, and to print a value directly to the output from a provided expression.
+
+```rant
+# Print the value of x + 2 directly to the output
+[@ x + 2]
+
+# Run a script without printing anything
+[@
+  var fibonacci = (n) =>
+  {
+      var a = 0;
+      var b = 1;
+      var i = 0;
+      while(i < n)
+      {
+          if (i > 0) Output.print(", ");
+          Output.print(a);
+          var temp = a;
+          a = b;
+          b += temp;
+          i++;
+      }
+      return;
+  }
+]
+```
+
+---
+
+Now, without further ado, we present to you the complete Rant language specification. We hope you find it useful.
