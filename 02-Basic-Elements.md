@@ -138,4 +138,40 @@ This example shows how a quantified escape sequence can be used to generate a ra
 
 ## 2.4 - Constant Literals
 
-Some situations may require the user to print a large number of special characters in a row. Escaping every individual character would be both tiresome and a waste of space; therefore, another solution exists to escape groups of characters: the **constant literal**.
+Some situations may require the user to print a large number of special characters in a row. Escaping every individual character would be both tiresome and a waste of space; therefore, another solution exists: the **constant literal**.
+
+A constant literal collectively escapes a group of distinct characters. They are created by surrounding the desired string with double-quotes (`"`).
+
+To give an example, consider this set of escape sequences below.
+```rant
+\{\<\[example\]\>\}
+```
+
+This is quite long and can be difficult to read. Here is the same pattern using a single constant literal instead of escape sequences:
+```rant
+"{<[example]>}"
+```
+
+Both of these patterns output the following:
+```
+{<[example]>}
+```
+
+To use double-quotes inside of a constant literal, simply use two double-quotes in a row, like so:
+```rant
+"This is some text with ""quotation marks"" in it."
+```
+
+Constant literals literally print everything inside of them (with the exception of the double-quote rule). This means that even line breaks work inside of them.
+
+```rant
+"Constant literals
+Compressed escape sequences
+For your sanity"
+```
+This outputs the following:
+```
+Constant literals
+Compressed escape sequences
+For your sanity
+```
