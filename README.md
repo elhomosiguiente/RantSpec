@@ -13,7 +13,7 @@ _**Fair warning**: This specification is a work-in-progress and should not be us
   * [1.4 - Queries](01-Introduction.md#14---queries)
   * [1.5 - Richard](01-Introduction.md#15---richard)
 * [2 - Basic Elements](02-Basic-Elements.md)
-  * 2.1 - Text & Whitespace
+  * [2.1 - Text & Whitespace](02-Basic-Elements.md#21---text--whitespace)
   * 2.2 - Comments
   * 2.3 - Escape Sequences
   * 2.4 - Constant Literals
