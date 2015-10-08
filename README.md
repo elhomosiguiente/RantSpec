@@ -14,11 +14,10 @@ _**Fair warning**: This specification is a work-in-progress and should not be us
   * [1.5 - Richard](01-Introduction.md#15---richard)
 * [2 - Basic Elements](02-Basic-Elements.md)
   * [2.1 - Text & Whitespace](02-Basic-Elements.md#21---text--whitespace)
-  * 2.2 - Comments
-  * 2.3 - Escape Sequences
-  * 2.4 - Constant Literals
-  * 2.5 - Shortcuts
-  * 2.6 - Blocks
+  * [2.2 - Comments](02-Basic-Elements.md##22---comments)
+  * [2.3 - Escape Sequences](02-Basic-Elements.md#23---escape-sequences)
+  * [2.4 - Constant Literals](02-Basic-Elements.md#24---constant-literals)
+  * 2.5 - Blocks
 * 3 - Functions
   * 3.1 - Built-In Functions
   * 3.2 - Subroutines
