@@ -175,3 +175,17 @@ Constant literals
 Compressed escape sequences
 For your sanity
 ```
+
+## 2.5 - Blocks
+
+One of the fundamental ideas of procedural generation is some degree of randomness, and Rant uses **blocks** to facilitate randomized diversions in the generation of textual output. A block is essentially a fork in the generation path, allowing the generator to choose one of several paths of execution to create highly varied end results. Blocks can be nested, weighted, repeated, and many other things that will be detailed further in this document. Firstly, an overview of the structure and basic usage of blocks shall be provided.
+
+A block consists of one or more **elements** contained within a **scope**, which defines the block's execution context. The scope of a block is always denoted by a pair of braces:
+```rant
+{ ... content here ... }
+```
+Multiple elements are separated by the pipe character:
+```rant
+{ A | B | C | D | E }
+```
+Unescaped whitespace is trimmed from the beginning and end of each element in a block.
