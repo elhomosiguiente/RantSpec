@@ -31,25 +31,35 @@ Most lower contexts impose further restrictions on allowed characters. It is gen
 
 ### Whitespace
 
-Only whitespace between non-whitespace characters will be acknowledged. This means line breaks are ignored. This also means that indentation is ignored. You can indent a pattern one million spaces and it will still give the same output. The only difference is that people will think you're ridiculous for indenting that much.
+On each line of the pattern, only whitespace between non-whitespace characters will be acknowledged. Additionally, all unescaped line breaks are ignored by the compiler. The most obvious result of this behavior is that Rant code can be indented without consequence.
 
-As an example, consider these three lines of text. They will print exactly the same thing.
+As an example, consider these three lines of text. Assume each line is a separate pattern.
 ```rant
 Hello, world!
     Hello, world!
         Hello, world!
 ```
+They will print exactly the same thing.
+```
+Hello, world!
+Hello, world!
+Hello, world!
+```
 
 These three lines, however, will print differently:
 ```rant
+Hello, world!
+    Hello,  world!
+        Hello,   world!
+```
+The indentation is ignored, but the extra spaces between the words "Hello," and "world!" are preserved, because they are surrounded by non-whitespace characters.
+```
 Hello, world!
 Hello,  world!
 Hello,   world!
 ```
 
-Notice the difference here. In the first example, the difference in whitespace is at the beginning of the line. Since it is not surrounded on both sides by non-whitespace characters, it is ignored. *(The same rule applies also for whitespace at the end of lines, and before comments.)*
-
-On the other hand, the whitespace in the second example occurs between two words. Consequentially, it is printed verbatim. Such is Rant.
+Likewise, any whitespace at the end of a line (and before comments at the end of a line) will be completely ignored.
 
 #### Line breaks
 
