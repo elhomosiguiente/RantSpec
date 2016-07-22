@@ -1,18 +1,18 @@
 # 2. Basic Elements
 
-This chapter provides information on the static (non-changing) aspects of the langauge, how whitespace and other non-essentials are handled by the compiler, and blocks (branching).
+This chapter provides information on the static (non-changing) aspects of the langauge, how whitespace and other non-essentials must be handled by the compiler, and blocks (branching).
 
 ## 2.1 - Text & Whitespace
 
 ### Text
 
-Text is only text and nothing more. A pattern that is just some text will just print some text. For example, that sentence will work as a pattern.
+Plain text with no reserved functionality is only text and nothing more. A pattern that is just some text should just print some text. For example, that sentence will work as a pattern.
 
 ```rant
 A pattern that is just some text will just print some text.
 ```
 
-There are some exceptions to this, of course, and those are **whitespace** and **reserved characters**. In a top-level context (not inside any kind of tag, query, or other semantic element), certain characters are not allowed because they are used by the language itself. Here is a list of reserved top-level characters:
+There are some exceptions to this, of course, and those are **whitespace** and **reserved characters**. In a top-level context (not inside any kind of tag, query, or other semantic element), certain characters must not be allowed because they are used by the language itself. Here is a list of reserved top-level characters:
 
 ```
 [
@@ -31,39 +31,39 @@ Most lower contexts impose further restrictions on allowed characters. It is gen
 
 ### Whitespace
 
-On each line of the pattern, only whitespace between non-whitespace characters will be acknowledged. Additionally, all unescaped line breaks are ignored by the compiler. The most obvious result of this behavior is that Rant code can be indented without consequence.
+On each line of the pattern, only whitespace between non-whitespace characters shall be acknowledged. Additionally, all unescaped line breaks are to be ignored by the compiler. This design choice was made so that Rant code can be indented without consequence.
 
-As an example, consider these three lines of text. Assume each line is a separate pattern.
+As an example, consider these three lines of text. Assume each line is executed separately.
 ```rant
 Hello, world!
     Hello, world!
         Hello, world!
 ```
-They will print exactly the same thing.
+They print exactly the same thing.
 ```
 Hello, world!
 Hello, world!
 Hello, world!
 ```
 
-These three lines, however, will print differently:
+These three lines, however, print differently:
 ```rant
 Hello, world!
     Hello,  world!
         Hello,   world!
 ```
-The indentation is ignored, but the extra spaces between the words "Hello," and "world!" are preserved, because they are surrounded by non-whitespace characters.
+The indentation here is ignored, but the extra spaces between the words "Hello," and "world!" are preserved, because they are surrounded by non-whitespace characters. The output, then, shall be as follows:
 ```
 Hello, world!
 Hello,  world!
 Hello,   world!
 ```
 
-Likewise, any whitespace at the end of a line (and before comments at the end of a line) will be completely ignored.
+Likewise, any whitespace at the end of a line (and before comments at the end of a line) must be completely discarded.
 
 #### Line breaks
 
-To print a line break to the output, an escape sequence, such as `\n` or `\N`, must be used. Actual line breaks will be ignored.
+To print a line break to the output, an escape sequence, such as `\n` or `\N`, must be used. Any actual unescaped line breaks are to be ignored.
 
 ## 2.2 - Comments
 
@@ -86,13 +86,15 @@ Here are a few examples of comment usage:
 }
 ```
 
+Comments must not affect the way a pattern functions, and any white space occurring immediately before a comment must be discarded.
+
 ## 2.3 - Escape Sequences
 
 Escape sequences are used to print reserved characters or characters that can't be typed with a normal keyboard. They can also be used to generate random characters of different types, like decimal digits and letters. Escape sequences may appear in any place where plain text is allowed.
 
-There are two types of escape sequences: **simple** and **quantified**.
+There are two types of escape sequences described in this specification: **simple** and **quantified**.
 
-A **simple** escape sequence begins with a backslash (`\`) character, followed by an **escape code**. The escape code determines what kind of character is printed, and is usually one character long (the one exception to this rule is `\uXXXX`). Some escape codes literally print themselves, like braces. Some have special behaviors, for example, line feed (`\n`) and carriage return (`\r`). Some may print more than one character, such as the system-specific line separator (`\N`). Any special character (that is not whitespace) can be escaped.
+A **simple** escape sequence begins with a backslash (`\`) character, followed by an **escape code**. The escape code determines what kind of character is printed, and is in almost all cases one character long (the one exception to this rule is the Unicode escape pattern `\uXXXX`). Some escape codes literally print themselves, like braces. Some have special behaviors, for example, line feed (`\n`) and carriage return (`\r`). Some may print more than one character, such as the system-specific line separator (`\N`). Any special character (that is not whitespace) can be escaped.
 
 Below are a few examples of simple escape sequences:
 
@@ -100,6 +102,7 @@ Below are a few examples of simple escape sequences:
 This\ntext\nspans\nmultiple\nlines.
 
 # You can split them by line for easier reading if you want.
+# Because line breaks are ignored, separating sets of tokens into multiple lines has no effect on output.
 This\n
 text\n
 spans\n
@@ -115,7 +118,7 @@ lines.
 
 A **quantified** escape sequence includes an additional argument that instructs Rant to repeat the desired character a certain number of times.
 
-The structure for a quantified escape sequence is slightly different. Instead of the escape code immediately following the `\` character, first must come a positive, nonzero integer indicating the number of characters to generate. Following this must be a comma, followed by the regular escape code.
+The structure for a quantified escape sequence is slightly different. Instead of the escape code immediately following the `\` character, first must come a positive, nonzero, 32-bit integer indicating the number of characters to generate. Following this must be a comma, followed by the regular escape code.
 ```
 \COUNT,CODE
 ```
@@ -126,6 +129,8 @@ This example shows how a quantified escape sequence can be used to generate a ra
 ```
 
 ### Supported Escape Codes
+
+These escape codes shall be supported in all implementations:
 
 |Code|Character|
 |----|---------|
@@ -145,6 +150,8 @@ This example shows how a quantified escape sequence can be used to generate a ra
 |`\x`|Random lowercase hexadecimal digit|
 |`\X`|Random uppercase hexadecimal digit|
 |`\uXXXX`|UTF-16 character (replace `XXXX` with the hex code of the desired character)|
+
+The specific character ranges for `\c`, `\C`, `\d`, `\D`, `\w`, and `\W` are to be determined by the current locale-specific formatting settings supplied to the Rant context.
 
 ## 2.4 - Constant Literals
 
